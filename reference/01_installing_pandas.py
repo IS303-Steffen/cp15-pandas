@@ -47,7 +47,7 @@ IT STILL ISN'T WORKING FOR ME:
     1. Most likely, you are installing the package to one version of python,
        and then running a different version in VS Code. You can click the
        numbers at the bottom right of VS Code near where it says "Python" to
-       see all the version of Python that you have installed.
+       see all the versions of Python that you have installed.
 
     2.1 For MacOS users:
         In the terminal, type "which pip" or "which pip3" and press return.

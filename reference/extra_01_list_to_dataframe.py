@@ -1,8 +1,10 @@
-# optional stuff that will clear the window each time you run it.
 import os
 import platform
 
 def clear_screen():
+    """
+    Clears the terminal screen to make it easier to follow along with code.
+    """
     if platform.system() == 'Windows':
         os.system('cls')
     else:
@@ -10,59 +12,51 @@ def clear_screen():
 
 clear_screen()
 
-###########################
-# START READING HERE
-###########################
+# =================
+# LIST TO DATAFRAME
+# =================
 
 '''
-The main point of using Pandas is because in Pandas you get access to a datatype called a dataframe,
-which is sort of like a mini spreadsheet with rows and columns
-
-Some benefits of using it are:
-    - makes it really easy to import from external sources of data like .csv files, excel, sql databases
-    - also makes it easy to export to those sources
-    - works well with existing python data types like lists and dictionaries
-    - makes it easy to deal with messy data, especially missing values
-    - has options for filtering and sorting data
-
-You probably won't see the biggest benefits of this until we start working with databases.
-If they don't seem that useful, just be patient.
-Today the plan is just to use them with lists and dictionaries before doing stuff with external sources.
-
+OVERVIEW
+--------
+These are a few examples of putting lists into a DataFrame. I don't cover it
+in class since using dictionaries is easier since that more elegantly handles
+column lables. You'll have to manually add column labels afterwards if you use
+lists.
 '''
 
-import pandas as pd # note, you don't need the "as pd" part, but for whatever reason, that's how most programmers refer to pandas
+import pandas as pd 
 
-#list of data
-lstNames = ["Ballet", "Jazz", "Modern", "Tap", "Tango", "Square", "Hip-Hop"]
+# list of dances
+dances_list = ["Ballet", "Jazz", "Modern", "Tap", "Tango", "Square", "Hip-Hop"]
 
-# store a dataframe by calling the DataFrame constructor and give it a list as an argument.
-dfDance = pd.DataFrame(lstNames)
-
-# try printing out the dataframe
-# Every piece of data gets its own row. Rows are numbered 0, 1, 2, etc. That is the row index
-# Columns can have titles, but by default it is just 0, 1, 2, etc.
-print(dfDance)
+# 1. CREATE A DATAFRAME FROM A LIST
+# Use the list provided above to make a DataFrame. Print it out afterwards.
+df_dances = pd.DataFrame(dances_list)
+print(df_dances, '\n')
 
 
 # Another list of data
-lstNames2 = [ ["Ballet","Jane"], ["Jazz", "Hadley"], ["Modern", "Lyla"], ["Tap", "London"], ["Tango", "Zoey"], ["Square", "Millie"], ["Hip-Hop", "Beck"]]
+names_dances_list = [
+    ["Ballet","Jane"],
+    ["Jazz", "Hadley"],
+    ["Modern", "Lyla"],
+    ["Tap", "London"],
+    ["Tango", "Zoey"],
+    ["Square", "Millie"],
+    ["Hip-Hop", "Beck"]
+]
 
-# put this new list into a new dataframe
-dfDance2 = pd.DataFrame(lstNames2)
+# 2. CREATE A DATAFRAME FROM A LIST
+# Create another DataFrame and print it out using the above list.
+df_dances_2 = pd.DataFrame(names_dances_list)
+print(df_dances_2, "\n")
 
-print(dfDance2, "\n")
+# 3. RENAME THE COLUMNS
+# if you wanted to rename the columns, you can change the .columns attribute of
+# the dataframe give it a list of column titles, like "Dancer Type"
+# and "Dancer Name"
+column_labels = ["Dance Type", "Dancer Name"]
+df_dances_2.columns = column_labels
+print(df_dances_2, "\n")
 
-# if you wanted to rename the columns, you can change the .columns attribute of the dataframe
-# give it a list of column titles, like "Dancer Type" and "Dancer Name"
-dfDance2.columns = ["Dance Type", "Dancer Name"]
-print(dfDance2, "\n")
-
-
-# you can also change the row names through the index attribute.
-# Not really useful for what we'll do in class, but good to know
-dfDance2.index = ["A", "B", "C", "D", "E", "F", "G"]
-print(dfDance2)
-
-
-print(dfDance2["Dance Type"])

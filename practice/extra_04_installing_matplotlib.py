@@ -16,12 +16,12 @@ clear_screen()
 # INSTALLING PACKAGES WITH PIP
 # ============================
 
-import pandas as pd
+import matplotlib.pyplot as plot
 
 '''
 FIRST:
     Try running this code. You're probably going to get an error.
-    This is because pandas is a library that you need to download from the
+    This is because matplotlib is a library that you need to download from the
     internet.
 
 HOW TO DOWNLOAD LIBRARIES:
@@ -30,9 +30,9 @@ HOW TO DOWNLOAD LIBRARIES:
     1. In VS Code, go to Terminal > New Terminal (at the top of the screen)
 
     2. Then in the bottom Terminal window, type:
-                pip install pandas
+                pip install matplotlib
         and then hit the enter/return key. If that doesen't work, try:
-                pip3 install pandas
+                pip3 install matplotlib
         then hit the enter/return key
     
     3. Then, try and run this python file again, if it prints out the message
@@ -64,4 +64,4 @@ IT STILL ISN'T WORKING FOR ME:
        and then select the version of python that says "Recommended" 
 '''
 
-print("If this prints, that means you installed pandas correctly")
+print("If this prints, that means you installed matplotlib correctly")

@@ -1,0 +1,48 @@
+import os
+import platform
+
+def clear_screen():
+    """
+    Clears the terminal screen to make it easier to follow along with code.
+    """
+    if platform.system() == 'Windows':
+        os.system('cls')
+    else:
+        os.system('clear')
+
+clear_screen()
+
+# ==========================
+# LOOPING THROUGH DATAFRAMES
+# ==========================
+
+'''
+OVERVIEW
+--------
+You can loop through columns and rows of a DataFrame. If you are looping so
+that you can update a value in the DataFrame, I'd recommend just seeing if you
+can use .iloc or .loc to update a value since that is more computationally 
+efficient.
+'''
+
+import pandas as pd
+
+dancers_dict = {
+    "Type" : ["Ballet", "Jazz", "Modern", "Tap", "Tango", "Square", "Hip-Hop"],
+    "Dancer" : ["Jane", "Hadley", "Lyla", "London", "Zoey", "Millie", "Beck"],
+    "Age" : [18, 23, 19, 20, 21, 22, 21]
+}
+
+df_dancers = pd.DataFrame(dancers_dict)
+
+# Reminder Hint:
+example_string = "Strings are like lists of characters"
+print(example_string[0])
+
+# 1. PRACTICE
+# Given the above DataFrame:
+# - Loop through it, and add 3 to the age of every dancer who's first name
+#   starts with "L". 
+# HINT: When you find a match (a dancer whose name starts with "L") use the 
+# index of the loop you're on to edit the original DataFrame.
+
